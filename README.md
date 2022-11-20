@@ -1,6 +1,13 @@
 # PLC_exam2
 ## Grammar for undefined language -- trees language
+### Parse table
+[Parse table](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/parsetable.html)
+<br>[Accepted trace 1](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/correct_trace1.html)
+<br>[Accepted trace 2](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/correct_trace2.html)
+<br>[Failed trace 1](https://github.com/zboyle1/PLC_exam2/blob/main/failed_trace1.html)
+<br>[Failed trace 2](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/failed_trace2.html)
 
+### Grammar
 - S = \<program>
 - V = { 
     <br>\<program>, \<stmt>, \<ifstmt>, \<forloop>, \<whileloop>,
