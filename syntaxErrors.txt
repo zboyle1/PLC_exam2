@@ -1,0 +1,17 @@
+tree{ 
+    twig elm 7 leaf
+    trunk oak leaf
+    oak = 10
+    growfor( stick i = 0 i < elm , i = i + 1 ) 
+	apple( i < 4 
+		oak = oak - 1 leaf
+	eat
+    oak = oak + 1 leaf 
+}
+
+Errors:
+line 2: missing '='
+line 4: missing leaf delimiter
+line 5: missing comma delimiter
+line 6: missing closing parenthesis
+line 10: missing stop

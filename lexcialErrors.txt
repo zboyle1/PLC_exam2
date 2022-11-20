@@ -1,0 +1,18 @@
+tree{
+	seed a = 9 leaf
+	stick a2 = 0 leaf
+	growfor( twig i = 0 , i < a , i = i + 1 }
+		apple( i => 5 )
+			a = a - 1 leaf
+		orange
+			a = a \ 1 leaf
+		ea
+	stop
+}
+
+Errors:
+line 2: a2 is not a valid identifier name
+line 4: => is not recognized
+line 8: \ is not recognized
+line 4: } must be changed to )
+line 9: ea is not recognized
