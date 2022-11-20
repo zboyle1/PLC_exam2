@@ -1,0 +1,10 @@
+tree{
+	seed a = 9 leaf
+	growfor( twig i = 0 , i < a , i = i + 1 )
+		apple( i >= 5 )
+			a = a - 1 leaf
+		orange
+			a = a + 1 leaf
+		eat
+	stop
+}
