@@ -67,12 +67,12 @@ public class lexer {
          System.err.println("ERROR: " + lexeme + " is too long to be a valid token");
 		   System.exit(1);
       // Check if keyword is a valid identifier
-      } else if(lexeme.toLowerCase().matches("[[a-z]++_??]++")) {
+      } else if(lexeme.toLowerCase().matches("([a-z]_?){6,8}")) {
 		   keywordList.add(lexeme.toLowerCase());
 		   lexeme = "id";
 		   tokenList.add(tokenMap.get(lexeme));
      // Check if keyword is a number
-	  } else if(lexeme.matches("[0-9]++")) {
+	  } else if(lexeme.matches("[0-9]+")) {
          keywordList.add(lexeme);
 		   lexeme = "digit";
          tokenList.add(tokenMap.get(lexeme));

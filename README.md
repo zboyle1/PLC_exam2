@@ -4,15 +4,19 @@
 [Parse table](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/parsetable.html)
 <br>[Accepted trace 1](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/correct_trace1.html)
 <br>[Accepted trace 2](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/correct_trace2.html)
-<br>[Failed trace 1](https://github.com/zboyle1/PLC_exam2/blob/main/failed_trace1.html)
+<br>[Failed trace 1](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/failed_trace1.html)
 <br>[Failed trace 2](https://htmlpreview.github.io/?https://github.com/zboyle1/PLC_exam2/blob/main/failed_trace2.html)
+### RegEx
+<br>([a-z]_?){6,8} RegEx for variable names
+<br>[0-9]+ RegEx for numbers
 
 ### Grammar
 - S = \<program>
 - V = { 
     <br>\<program>, \<stmt>, \<ifstmt>, \<forloop>, \<whileloop>,
 		<br>\<switch>, \<case>, \<expr>, \<assertion>, \<term>, 
-		<br>\<boolexpr>, \<var>, \<ident>, \<digit>
+		<br>\<boolexpr>, \<var>, \<ident>, \<digit>, \<elsestmt>,
+		<br>\<declaration>
 	<br>}
 - ∑ = { 
     <br>tree, leaf, seed, twig, trunk, stick, apple,
@@ -23,26 +27,24 @@
 		<br>6, 7, 8, 9
 	<br>}
 - R = [
-		<br>\<program> 	--> tree{ \<stmt> }
-		<br>\<stmt> 		--> \<forloop>\<stmt>|\<whileloop>\<stmt>|\<var> leaf \<stmt>|
-						<br>\<ifstmt>\<stmt>|\<switch>\<stmt>|\<assertion> leaf \<stmt>|null
-		<br>\<forloop> 	--> growfor(\<var>,\<boolexpr>,\<expr>) \<stmt> stop
-		<br>\<whileloop> --> grow(\<boolexpr>) \<stmt> stop
-		<br>\<dowhile> 	--> root \<stmt> stop grow(\<boolexpr>)
-		<br>\<switch>	--> climb(\<ident>) \<case> stop
-		<br>\<case>		--> branch \<digit>: \<stmt> \<case>|null
-		<br>\<ifstmt>	--> apple(\<boolexpr>) \<stmt> orange \<stmt> eat|
-						<br>apple(\<boolexpr>) \<stmt> eat
-		<br>\<var>		--> \<type> \<ident> | \<type> \<ident> = \<expr>
-		<br>\<assertion> --> \<ident> = \<expr>
-		<br>\<ident>		--> \<letter>\<ident>|_\<ident>|null
-		<br>\<letter>	--> a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|
-						<br>s|t|u|v|w|x|y|z
-		<br>\<type>		--> seed|stick|twig|trunk
-		<br>\<expr>		--> \<term> + \<expr>|\<term> - \<expr>|\<term> * \<term>|
-						<br>\<term> / \<expr>|\<term> % \<expr>|(\<expr>)|\<term>|
-		<br>\<term>		--> \<ident>|\<digit>
-		<br>\<digit>		--> 0|1|2|3|4|5|6|7|8|9
-		<br>\<boolexpr>	--> \<expr> \<op> \<expr>
-		<br>\<op>		--> >|>=|<|<=|==|!=
+		<br><program> --> tree{ <stmt> }
+		<br><stmt> --> <forloop><stmt>|<whileloop><stmt>|<var> leaf <stmt>|<ifstmt><stmt>|<switch><stmt>|<dowhile><stmt>|<assertion> leaf <stmt>|null
+		<br><forloop> --> growfor(<var>,<boolexpr>,<expr>) <stmt> stop
+		<br><whileloop> --> grow(<boolexpr>) <stmt> stop
+		<br><dowhile> --> root <stmt> stop grow(<boolexpr>)
+		<br><switch> --> climb(<ident>) <case> stop
+		<br><case> --> branch <digit>: <stmt> <case>|null
+		<br><ifstmt> --> apple(<boolexpr>) <stmt> <elsestmt> eat
+		<br><elsestmt> --> orange <stmt>|null
+		<br><var> --> <type> <ident> <declaration>
+		<br><declaration> --> = <expr>|null
+		<br><assertion> --> <ident> = <expr>
+		<br><type> --> seed|stick|twig|trunk
+		<br><expr> --> <term>|(<expr>)
+		<br><term> --> <ident>|<digit>|+ <expr>|- <expr>|* <expr>|/ <expr>|% <expr>
+		<br><boolexpr> --> <expr> <op> <expr>
+		<br><op> --> >|>=|<|<=|==|!=
+		<br><ident> = <letter>|_<letter>
+		<br><letter> --> a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z
+		<br><digit> --> 0|1|2|3|4|5|6|7|8|9
 	<br>]
